@@ -1,18 +1,15 @@
-1px On Retina
-=====
+# 1px On Retina
 
-`retina` 屏幕实现 `1px`
+## Usage
 
-## 使用
-
-### background-image
+### 1、background-image
 
 
-### scale
+### 2、scale
 
 
-可以参考[糯米](https://m.nuomi.com/) 线上效果
+可以参考 [糯米](https://m.nuomi.com/) 线上效果
 
-## refer
+## Refer
 
-- [1px on retina]](http://efe.baidu.com/blog/1px-on-retina/)
+- [1px on retina](http://efe.baidu.com/blog/1px-on-retina/)
