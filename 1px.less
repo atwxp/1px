@@ -1,0 +1,125 @@
+// 1px on Retina
+// -----------------------------------------------------------------------------
+.retina(@top: transparent, @right: transparent, @bottom: transparent, @left: transparent, @w: 1px) {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+        border: none;
+        background-image:
+            -webkit-linear-gradient(270deg, @top, @top 50%, transparent 50%),
+            -webkit-linear-gradient(180deg, @right, @right 50%, transparent 50%),
+            -webkit-linear-gradient(90deg, @bottom, @bottom 50%, transparent 50%),
+            -webkit-linear-gradient(0, @left, @left 50%, transparent 50%);
+        background-image:
+            -moz-linear-gradient(270deg, @top, @top 50%, transparent 50%),
+            -moz-linear-gradient(180deg, @right, @right 50%, transparent 50%),
+            -moz-linear-gradient(90deg, @bottom, @bottom 50%, transparent 50%),
+            -moz-linear-gradient(0, @left, @left 50%, transparent 50%);
+        background-image:
+            -o-linear-gradient(270deg, @top, @top 50%, transparent 50%),
+            -o-linear-gradient(180deg, @right, @right 50%, transparent 50%),
+            -o-linear-gradient(90deg, @bottom, @bottom 50%, transparent 50%),
+            -o-linear-gradient(0, @left, @left 50%, transparent 50%);
+        background-image:
+            linear-gradient(180deg, @top, @top 50%, transparent 50%),
+            linear-gradient(270deg, @right, @right 50%, transparent 50%),
+            linear-gradient(0deg, @bottom, @bottom 50%, transparent 50%),
+            linear-gradient(90deg, @left, @left 50%, transparent 50%);
+        background-size: 100% @w, @w 100%, 100% @w, @w 100%;
+        background-repeat: no-repeat;
+        background-position: top, right top, bottom, left top;
+    }
+}
+
+.top-1px(@color: transparent, @w: 1px) {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+        border: none;
+        background-image: -webkit-linear-gradient(270deg, @color, @color 50%, transparent 50%);
+        background-image: -moz-linear-gradient(270deg, @color, @color 50%, transparent 50%);
+        background-image: -o-linear-gradient(270deg, @color, @color 50%, transparent 50%);
+        background-image: linear-gradient(180deg, @color, @color 50%, transparent 50%);
+        background-size: 100% @w;
+        background-repeat: no-repeat;
+        background-position: top;
+    }
+}
+
+.right-1px(@color: transparent, @w: 1px) {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+        border: none;
+        background-image: -webkit-linear-gradient(180deg, @color, @color 50%, transparent 50%);
+        background-image: -moz-linear-gradient(180deg, @color, @color 50%, transparent 50%);
+        background-image: -o-linear-gradient(180deg, @color, @color 50%, transparent 50%);
+        background-image: linear-gradient(90deg, @color, @color 50%, transparent 50%);
+        background-size: @w 100%;
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+}
+
+.bottom-1px(@color: transparent, @w: 1px) {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+        border: none;
+        background-image: -webkit-linear-gradient(90deg, @color, @color 50%, transparent 50%);
+        background-image: -moz-linear-gradient(90deg, @color, @color 50%, transparent 50%);
+        background-image: -o-linear-gradient(90deg, @color, @color 50%, transparent 50%);
+        background-image: linear-gradient(0, @color, @color 50%, transparent 50%);
+        background-size: 100% @w;
+        background-repeat: no-repeat;
+        background-position: bottom;
+    }
+}
+
+.left-1px(@color: transparent, @w: 1px) {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+        border: none;
+        background-image: -webkit-linear-gradient(0deg, @color, @color 50%, transparent 50%);
+        background-image: -moz-linear-gradient(0deg, @color, @color 50%, transparent 50%);
+        background-image: -o-linear-gradient(0deg, @color, @color 50%, transparent 50%);
+        background-image: linear-gradient(270deg, @color, @color 50%, transparent 50%);
+        background-size: @w 100%;
+        background-repeat: no-repeat;
+        background-position: left;
+    }
+}
+
+.border-1px(@ratio: 2, @color, @radius: 0) {
+    position: relative;
+    border: none !important;
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: (1 - @ratio) * 100%;
+        bottom: (1 - @ratio) * 100%;
+        border: 1px solid @color;
+        border-radius: @radius;
+        .transform(scale(1 / @ratio));
+        .transform-origin(0 0);
+        pointer-events: none;
+    }
+}
